@@ -1,0 +1,15 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+
+<td><%= link_to 'Eliminar articulo', article_path(@article),
+              method: :delete,
+              data: { confirm: 'Estas segur@?' } %></td>
+
+
+<h2>Comentarios</h2>
+<%= render @article.comments %>
+
+<h2>Agregar un comentario:</h2>
+<%= render 'comments/form' %>
+
