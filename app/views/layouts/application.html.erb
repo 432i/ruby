@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Prueba</title>
+    <title>blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,8 +11,24 @@
   </head>
 
   <body>
+    
+    <%= yield %>
+    <center>
+    <% if user_signed_in? %>
+        
+    <p> <%= link_to "volver a articulos", articles_path %> </p>
+
+    <p> <%= link_to "cerrar sesion", destroy_user_session_path, method: :delete %> </p>
+
+    <% else %>
+    
+    <%= link_to "Iniciar sesion", new_user_session_path %>
+    <%= link_to "Iniciar sesion con Onelogin", saml_login_path %>
+
+    <%= link_to "Registrarse", new_user_registration_path %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    </center>
   </body>
 </html>

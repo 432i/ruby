@@ -1,4 +1,18 @@
 class ArticlesController < ApplicationController
+  #protect_from_forgery with: exception
+  
+
+  before_action :authenticate_user!, except: [:home]
+  
+  skip_before_action :verify_authenticity_token, only: :create
+
+  
+  #skip_before_action :verify_authenticity_token
+
+  def home
+    
+  end
+
   def index
     @articles = Article.all
   end

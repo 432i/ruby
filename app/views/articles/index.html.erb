@@ -1,11 +1,17 @@
-<h1>Articulos de mi blog</h1>
+<h1>Articulos publicados</h1>
+
+
 
 <ul>
   <% @articles.each do |article| %>
     <li>
       <%= link_to article.title, article %>
+      <td><%= link_to 'Editar articulo', edit_article_path(article) %></td>
     </li>
   <% end %>
 </ul>
 
 <%= link_to "Crear un nuevo articulo", new_article_path %>
+
+<center> <p> <%= link_to "editar tu perfil", edit_user_registration_path %> </p> </center>
+

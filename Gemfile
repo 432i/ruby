@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'ruby-saml', '~> 1.12'
+
+gem 'omniauth-saml'
+gem "omniauth-rails_csrf_protection", '~> 1.0.0'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
