@@ -2,6 +2,7 @@ class PasswordsController < Devise::PasswordsController
  
 
   protected
+  #luego de cambiar la contraseña, se updatea la columna de la bd
     def after_resetting_password_path_for(resource)
         resource.update(passwordreset: false)
         super

@@ -1,9 +1,13 @@
 class User < ApplicationRecord
+  devise :two_factor_authenticatable,
+         :otp_secret_encryption_key => ENV['SECRETO_ENCRIPTADO'] #asignar esta variable de entorno de forma segura (32 bytes)
+
   belongs_to :client
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  #VERIFICAR QUE DATABASE AUTENTICABLE N OESTE Y ESTE TWO FACTOR AUTENTICABLE
+  devise :registerable,
          :recoverable, :rememberable, :validatable, :timeoutable
 
   
@@ -18,3 +22,4 @@ class User < ApplicationRecord
     #intenta primero el valor de timeout del usuario y luego del cliente
   end
 end
+

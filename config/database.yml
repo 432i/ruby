@@ -26,8 +26,8 @@ development:
   database: prueba
   host: localhost
   port: 5432
-  user: ignacio
-  password: password
+  user: dev
+  password: 
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

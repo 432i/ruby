@@ -46,10 +46,24 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
-  
+  <p>
+  <% if !current_user.otp_required_for_login %> 
+    <%= link_to "Habilitar autenticacion de 2 pasos", users_otp_enable_path, method: :patch %>
+  <% else %>
+    <%= link_to "Deshabilitar autenticacion de 2 pasos", users_otp_disable_path, method: :patch %>
+  <% end %>
+  </p>
+  <p>
+  <% if !current_user.passwordreset %> 
+    <%= link_to "Habilitar reseteo de contraseña", users_otp_enable_reset_password_path, method: :patch %>
+  <% else %>
+    <%= link_to "Deshabilitar reseteo de contraseña", users_otp_disable_reset_password_path, method: :patch %>
+  <% end %>
+  </p>
 <% end %>
 
 

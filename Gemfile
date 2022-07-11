@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'ruby-saml', '~> 1.12'
+gem 'devise-two-factor'
+
 
 gem 'omniauth-saml'
 gem "omniauth-rails_csrf_protection", '~> 1.0.0'

@@ -1,0 +1,10 @@
+<h1>Hola</h1>
+<p>Ingresa el codigo de seguridad que se te ha enviado a tu correo</p>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name),  method: :post ) do |f| %>
+
+    <div> <%= f.label :otp_attempt, "Codigo de seguridad" %> <br/>
+    <%= f.text_field :otp_attempt %> </div>
+
+    <%= f.submit "Enviar" %>
+<% end %>
