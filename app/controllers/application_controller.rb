@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       
       token = current_user.send(:set_reset_password_token)
       sign_out(current_user)
-      puts user_signed_in?
+      #puts user_signed_in?
       flash[:notice] = 'Debes cambiar tu contraseña al iniciar sesion por primera vez'
       edit_password_path(:user, reset_password_token: token)
     

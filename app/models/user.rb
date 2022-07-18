@@ -12,7 +12,6 @@ class User < ApplicationRecord
 
   
   def timeout
-    
     timeoutminutes or client.try(:timeout)
   end
 
