@@ -9,17 +9,12 @@ class ApplicationController < ActionController::Base
   
   #metodo para cambio de contraseña en primer login
   def after_sign_in_path_for(resource)
-    #current_user.update(passwordreset: true)
-    if current_user.passwordreset == true
-      
+    if current_user.passwordreset == true  
       token = current_user.send(:set_reset_password_token)
       sign_out(current_user)
-      #puts user_signed_in?
       flash[:notice] = 'Debes cambiar tu contraseña al iniciar sesion por primera vez'
       edit_password_path(:user, reset_password_token: token)
-    
     else
-      
       root_path
     end
   end
